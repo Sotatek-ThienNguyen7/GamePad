@@ -7,6 +7,7 @@ import 'package:game_pad/common/blocs/alert/app_alert_state.dart';
 import 'package:game_pad/common/blocs/loading/loading_cubit.dart';
 import 'package:game_pad/common/loading_app.dart';
 import 'package:game_pad/router/route_name.dart';
+import 'package:game_pad/ui/home/bloc/game_data_bloc.dart';
 import 'package:lifecycle/lifecycle.dart';
 import 'package:game_pad/di/injections.dart';
 import 'package:game_pad/resources/colors.dart';
@@ -17,6 +18,7 @@ class GPApp extends StatelessWidget {
 
   List<BlocProvider> _providers() => [
         BlocProvider<LoadingCubit>(create: (_) => inject<LoadingCubit>()),
+        BlocProvider<GameDataBloc>(create: (_) => inject<GameDataBloc>()),
         BlocProvider<AppAlertCubit>(create: (_) => inject<AppAlertCubit>())
       ];
 
@@ -61,6 +63,5 @@ class GPApp extends StatelessWidget {
 
   void _alertListeners(BuildContext context, AppAlertState state) {
     // TODO: Show alert.
-
   }
 }
